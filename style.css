@@ -1,0 +1,79 @@
+body{
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    color: blue;
+    text-align: center
+    
+}
+.board-container{
+    background-color: white;
+    border: 10px solid blue;
+    border-radius: 5px;
+    padding: 10px blue;
+    display: inline-block
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td {
+    border: 1px solid #151212;
+    padding: 20px;
+    text-align: center;
+}
+
+.board-container td:hover {
+    cursor: pointer;
+    background-color: lightblue;
+}
+.easyBtn{
+    background-color: #ffffff;
+    color: rgb(2, 2, 2);
+    cursor: pointer;
+    display: inline-block;
+    margin:  10px 10px
+}
+.mediumBtn{
+    background-color: #ffffff;
+    color: rgb(2, 2, 2);
+    cursor: pointer;
+    display: inline-block;
+    margin:  10px 10px
+
+}
+.hardBtn{
+    background-color: #ffffff;
+    color: rgb(2, 2, 2);
+    cursor: pointer;
+    display: inline-block;
+    margin:  10px 10px
+}
+.restart{
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    
+}
+.timer-display {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.dark-mode-Btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+
+
