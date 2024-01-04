@@ -26,7 +26,15 @@ td {
     cursor: pointer;
     background-color: lightblue;
 }
-.easyBtn{
+.difuclty-btn{
+    background-color: #ffffff;
+    color: rgb(2, 2, 2);
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    margin: 10px 10px;
+}
+/* .easyBtn{
     background-color: #ffffff;
     color: rgb(2, 2, 2);
     cursor: pointer;
@@ -47,7 +55,7 @@ td {
     cursor: pointer;
     display: inline-block;
     margin:  10px 10px
-}
+} */
 .restart{
     background-color: #4CAF50;
     color: white;
