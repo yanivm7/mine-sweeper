@@ -17,19 +17,22 @@ const gGame = {
     markedCount: 0,
     secsPassed: 0
 }
+
+
 function onInit() {
     gBoard = buildBoard(gLevel.SIZE);
-    setMinesNegsCount(gBoard)
-    gGame.isOn = false
-    // console.log('hi');
-    renderBoard(gBoard, '.board-container')
-     addMine()
-    hideElementsByClass('game-outcome')
-    resetTimer()
-    restartGame()
+    setMinesNegsCount(gBoard);
+    gGame.isOn = false;
+    renderBoard(gBoard, '.board-container');
+    addMine();
+    hideElementsByClass('game-outcome');
+    resetTimer();
+    restartGame();
+    updateSmileyFace();
 
-   
+
 }
+
 
 
 
@@ -52,6 +55,9 @@ function buildBoard(size) {
     }
     return board;
 }
+
+
+
 function setMinesNegsCount(board) {
     for (var i = 0; i < board.length; i++) {
         for (var j = 0; j < board[i].length; j++) {
@@ -145,11 +151,10 @@ function checkGameOver() {
         for (var j = 0; j < gBoard[i].length; j++) {
             const cell = gBoard[i][j]
             if (cell.isMine && cell.isShown) {
-                if (!gGame.isOn) {
-                    gGame.isOn = true;
-                    console.log('Mine clicked!')
-                    displayGameOutcome('Game Over! You lost!', 'red');
-                }
+                // console.log('mine');
+                const smileyElement = document.querySelector('.restart')
+                smileyElement.innerHTML = '😢'
+                displayGameOutcome('Game Over! You lost!', 'red');
                 return true;
             }
         }
@@ -157,24 +162,7 @@ function checkGameOver() {
     return false;
 }
 
-function checkWinning() {
-    for (var i = 0; i < gBoard.length; i++) {
-        for (var j = 0; j < gBoard[i].length; j++) {
-            const cell = gBoard[i][j];
 
-            if (cell.isMine && !cell.isMarked) {
-                return false;
-            }
-
-            if (!cell.isMine && !cell.isShown) {
-                return false;
-            }
-        }
-    }
-
-    displayGameOutcome('Congratulations! You won!', 'green');
-    return true;
-}
 
 function displayGameOutcome(message, color) {
     hideElementsByClass('game-outcome');
@@ -184,6 +172,7 @@ function displayGameOutcome(message, color) {
         gameOutcomeElements[i].style.color = color;
         gameOutcomeElements[i].style.display = 'block';
     }
+    updateSmileyFace()
 }
 
 
@@ -203,17 +192,11 @@ function checkWinning() {
         }
     }
     displayGameOutcome('Congratulations! You won!', 'green');
+    const smileyElement = document.querySelector('.restart')
+    smileyElement.innerText = '😎'
     return true;
 }
-function displayGameOutcome(message, color) {
-    hideElementsByClass('game-outcome');
-    const gameOutcomeElements = document.querySelectorAll('.game-outcome');
-    for (var i = 0; i < gameOutcomeElements.length; i++) {
-        gameOutcomeElements[i].innerText = message;
-        gameOutcomeElements[i].style.color = color;
-        gameOutcomeElements[i].style.display = 'block';
-    }
-}
+
 function hideElementsByClass(className) {
     const elements = document.querySelectorAll('.' + className);
     for (var i = 0; i < elements.length; i++) {
@@ -223,18 +206,14 @@ function hideElementsByClass(className) {
 
 function restartGame() {
     if (checkWinning() || checkGameOver()) {
-        showRestartButton()
+        // showRestartButton()
         stopTimer()
       
         
-    } else {
-        hideRestartButton();
+    // } else {
+    //     hideRestartButton();
     }
 }
-
-
-
-
 
 function revealAllMines(board) {
     for (var i = 0; i < board.length; i++) {
@@ -247,8 +226,6 @@ function revealAllMines(board) {
         }
     }
 }
-
-
 
 function colorNums(row, col) {
     const elCell = document.querySelector(`.cell-${row}-${col}`);
@@ -270,3 +247,13 @@ function colorNums(row, col) {
 
     
 }
+
+function updateSmileyFace() {
+    const smileyElement = document.querySelector('.restart');
+        // console.log('ppp');
+        smileyElement.innerHTML = '😀'; 
+    
+}
+
+
+

@@ -59,13 +59,13 @@ function addMine() {
 }
 function onClickEasyBtn() {
     gLevel.SIZE = 4
-    gLevel.MINES = 2
+    gLevel.MINES =2
     onInit()
 }
 
 function onClickMediumBtn() {
     gLevel.SIZE = 6
-    gLevel.MINES = 6
+    gLevel.MINES = 20
     onInit()
 }
 
@@ -74,15 +74,15 @@ function onClickHardBtn() {
     gLevel.MINES = 10
     onInit()
 }
-function showRestartButton() {
-    const restartBtn = document.querySelector('.restart');
-    restartBtn.style.display = 'inline-block';
-}
+// function showRestartButton() {
+//     const restartBtn = document.querySelector('.restart');
+//     restartBtn.style.display = 'inline-block';
+// }
 
-function hideRestartButton() {
-    const restartBtn = document.querySelector('.restart');
-    restartBtn.style.display = 'none';
-}
+// function hideRestartButton() {
+//     const restartBtn = document.querySelector('.restart');
+//     restartBtn.style.display = 'none';
+// }
 var timerInterval;
 
 function startTimer() {
